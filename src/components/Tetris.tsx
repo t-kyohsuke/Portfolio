@@ -119,8 +119,6 @@ export const Tetris:React.FC=()=>{
 					{score}<br/>
 					LEVEL<br/>
 					{level +1}<br/>
-					tetro_Y:{tetro_Y}<br/>
-					test練習
 				</Box>
 			</Box>
 			
