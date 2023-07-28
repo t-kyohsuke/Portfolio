@@ -266,17 +266,12 @@ export const usePuzzleHooks =()=>{
 		const checkPieces =[1,2,3,4,5,6,7,8,""];
 		if(pieces.every((value,index)=> value === checkPieces[index])){
 			if(play === true){
-				setGameOverModal(true);
-				setScore(time);
+				setGameOverModal(true);	//modal状態管理（ゲームオーバー）
+				setPlay(false);			//ゲームプレイ状態管理
+				setIsRunning(false);	//タイマーON/OFF状態管理
+				setScore(time);			//スコアタイム
 			}
 		}
-	}
-
-	const Score =()=>{
-		useEffect(()=>{
-			setPlay(false);
-			setIsRunning(false);
-		},[score])
 	}
 
 //--タイマー-------------------
@@ -313,7 +308,6 @@ export const usePuzzleHooks =()=>{
 	return{
 		pieces,						//数値の配列
 		gameOverModal,setGameOverModal,	//modal状態管理(ゲームオーバー)
-		play,						//ゲームプレイ状態管理
 		handleClickPiece, 			//Boxをクリックしたときの処理（移動）
 		checkingAnswers,			//クリア条件チェック
 		handleStartStop,			//ゲームスタート（フラグON/OFF）
@@ -323,7 +317,7 @@ export const usePuzzleHooks =()=>{
 		formatTime,					//タイマーフォーマット
 		isRunning,					//タイマー状態管理
 		score,						//スコアタイム
-		Score,time,
+		time,						//タイマー経過時間
 	};
 
 }

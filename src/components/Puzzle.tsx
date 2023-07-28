@@ -12,19 +12,30 @@ export const Puzzle:React.FC=()=>{
 		setGameOverModal(false);
 	};
 
-//カスタムフックの分割代入
-	const {handleClickPiece, pieces, checkingAnswers,
+	//カスタムフックの分割代入
+	const {
+		pieces,						//数値の配列
 		gameOverModal,setGameOverModal,	//modal状態管理(ゲームオーバー)
-		handleStartStop,Timer,time,isRunning,formatTime,StartStop,score,Score
+		handleClickPiece, 			//Boxをクリックしたときの処理（移動）
+		checkingAnswers,			//クリア条件チェック
+		handleStartStop,			//ゲームスタート（フラグON/OFF）
+		StartStop,					//ゲームスタート（シャッフル/タイマー）
+
+		Timer,						//インターバル
+		formatTime,					//タイマーフォーマット
+		isRunning,					//タイマー状態管理
+		score,						//スコアタイム
+		time,						//タイマー経過時間
 	} = usePuzzleHooks();
 
 	useEffect(()=>{
 		checkingAnswers(pieces);
 	},[pieces]);
 
-StartStop();	//ゲームスタート（シャッフル/タイマー）
-Timer();		//インターバル
-Score();
+	//ゲームスタート（シャッフル/タイマー）
+	StartStop();
+	//インターバル
+	Timer();
 
 	return(<>
 		<Box sx={PuzzleStyleContainer}>
