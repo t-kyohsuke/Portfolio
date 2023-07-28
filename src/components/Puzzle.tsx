@@ -7,10 +7,6 @@ import { usePuzzleHooks } from "./Hooks/usePuzzleHooks";
 
 
 export const Puzzle:React.FC=()=>{
-	//ModalOpen
-	const handleOpen =()=>{
-		setGameOverModal(true);
-	};
 	//ModalClose
 	const handleClose =()=>{
 		setGameOverModal(false);

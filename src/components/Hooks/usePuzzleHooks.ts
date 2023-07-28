@@ -1,11 +1,5 @@
 
-import { ConstructionOutlined } from "@mui/icons-material";
-import { useState, useEffect, useRef} from "react";
-
-type User ={
-	index:number;
-	pieces:Array<number|string>;
-};
+import { useState, useEffect} from "react";
 
 export const usePuzzleHooks =()=>{
 	//pieces初期設定
@@ -182,7 +176,6 @@ export const usePuzzleHooks =()=>{
 	const handleStartStop =()=>{
 		//ゲームプレイ状態変更
 		setPlay((prev) => !prev);
-		console.log("Play:"+ play);
 	}
 
 //--ゲームスタート（シャッフル/タイマー）--------------------
@@ -221,15 +214,15 @@ export const usePuzzleHooks =()=>{
 	}
 
 //--シャッフル（スワップ）--------------------
-const swap =(i:number, j:number, arr:(number|string)[])=>{
-	//要素を交換
-	let temp = arr[i];
-	arr[i] = arr[j];
-	arr[j] = temp;
-}
+	const swap =(i:number, j:number, arr:(number|string)[])=>{
+		//要素を交換
+		let temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
 
 //--シャッフル（クリア可能かどうか）--------------------
-const isSolvable =(sPieces:(number|string)[]):boolean=>{
+	const isSolvable =(sPieces:(number|string)[]):boolean=>{
 	//--空白までの距離--------------------
         // 配列の空白のインデックス番号を格納
         const blankIndex = sPieces.indexOf("");
@@ -279,13 +272,12 @@ const isSolvable =(sPieces:(number|string)[]):boolean=>{
 		}
 	}
 
-const Score =()=>{
-	useEffect(()=>{
-		setPlay(false);
-		setIsRunning(false);
-		console.log("time:"+time + ":score:" +score);
-	},[score])
-}
+	const Score =()=>{
+		useEffect(()=>{
+			setPlay(false);
+			setIsRunning(false);
+		},[score])
+	}
 
 //--タイマー-------------------
 	const Timer =()=>{
@@ -326,6 +318,7 @@ const Score =()=>{
 		checkingAnswers,			//クリア条件チェック
 		handleStartStop,			//ゲームスタート（フラグON/OFF）
 		StartStop,					//ゲームスタート（シャッフル/タイマー）
+
 		Timer,						//インターバル
 		formatTime,					//タイマーフォーマット
 		isRunning,					//タイマー状態管理

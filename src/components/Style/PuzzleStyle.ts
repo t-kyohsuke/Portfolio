@@ -5,7 +5,6 @@ export const PuzzleStyleContainer ={
   flexDirection:"column",
   justifyContent:"center",
   alignItems:"center",
-  border:"1px solid",
   width:"600px",
   height:"700px" ,
 };
@@ -30,6 +29,4 @@ export const PuzzleStylePiece ={
 	display: "flex",
 	alignItems: "center",
 	justifyContent: "center",
-//  width:"98px",
-//  height:"98px",
 };
