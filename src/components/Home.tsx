@@ -16,8 +16,7 @@ export const Home:React.FC =()=>{
 		 border="1px solid"
 		 borderRadius="16px"
 		>
-			<div style={{border: "1px solid black"}}><h1>Welcome</h1></div>
-			<div>Material-UT</div>
+			<div /*style={{border: "1px solid black"}}*/><h1>Welcome</h1></div>
 			<div><Button onClick={()=>navigate("/Main")} variant="contained">
 				Enter
 			</Button></div>
