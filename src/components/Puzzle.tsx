@@ -51,7 +51,6 @@ Score();
 			<Box className="btn">
 				<Button id="btnStart" onClick={handleStartStop} variant="contained" sx={{width:"120px",margin:"5px"}}>{isRunning ? "STOP" : "START"}</Button>
 			</Box>
-
 			<ModalGameOver open={gameOverModal} onClose={handleClose} data={formatTime(score)}/>
 		</Box>
 	</>);
