@@ -49,8 +49,9 @@ Score();
 				<Box onClick={()=>handleClickPiece(8,pieces)} sx={PuzzleStylePiece} data-number="8">{pieces[8]}</Box>
 			</Box>
 			<Box className="btn">
-				<button id="btnStart" onClick={handleStartStop}>{isRunning ? "STOP" : "START"}</button>
+				<Button id="btnStart" onClick={handleStartStop} variant="contained" sx={{width:"120px",margin:"5px"}}>{isRunning ? "STOP" : "START"}</Button>
 			</Box>
+
 			<ModalGameOver open={gameOverModal} onClose={handleClose} data={formatTime(score)}/>
 		</Box>
 	</>);
