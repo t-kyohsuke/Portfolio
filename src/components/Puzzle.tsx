@@ -51,8 +51,7 @@ Score();
 			<Box className="btn">
 				<button id="btnStart" onClick={handleStartStop}>{isRunning ? "STOP" : "START"}</button>
 			</Box>
-			<Button onClick={handleOpen}>Open modal</Button>
-			{/*Modal */}
+
 			<ModalGameOver open={gameOverModal} onClose={handleClose} data={formatTime(score)}/>
 		</Box>
 	</>);
