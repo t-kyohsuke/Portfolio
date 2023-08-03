@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { Box ,Button, Typography, Icon} from "@mui/material";
 import { VolumeUp, VolumeOff } from "@mui/icons-material";
 
+
 import { TetrisStyleContainer, TetrisStyleContents,
-	 TetrisStyleMainContents,TetrisStyleMain,TetrisStyleSide} from "./Style/TetrisStyle";
+	 TetrisStyleMainContents,TetrisStyleMain,TetrisStyleSide,TetrisStyleNextTetro} from "./Style/TetrisStyle";
 import { useTetrisHooks} from "./Hooks/useTetrisHooks";
 //import { useGenericHooks } from "./Hooks/useGenericHooks";
 import { ModalGameOver, ModalStart } from "./Modal";
@@ -102,7 +103,7 @@ export const Tetris:React.FC=()=>{
 	return(<>
 		<Box sx={TetrisStyleContainer}>
 			<Box sx={TetrisStyleContents}>
-				<h1>Tetris</h1>
+				<h1>Tetris　　</h1>
 				<Icon onClick={handleSpeakerClick}>
 					{speakerOn ? <VolumeUp /> : <VolumeOff />}
 				</Icon>
@@ -110,15 +111,21 @@ export const Tetris:React.FC=()=>{
 
 			<Box sx={TetrisStyleMainContents}>
 				<Box sx={TetrisStyleMain}>
-					<canvas id="main">canvas要素をサポートしていません。</canvas>
+
+					<Box>
+						<canvas id="main">canvas要素をサポートしていません。</canvas>
+					</Box>
+
 				</Box>
 				<Box sx={TetrisStyleSide}>
-					NEXT<br/>
-					<canvas id="side">canvas要素をサポートしていません。</canvas>
-					SCORE<br/>
-					{score}<br/>
-					LEVEL<br/>
-					{level +1}<br/>
+					<h3>NEXT</h3>
+					<Box sx={TetrisStyleNextTetro}>
+						<canvas id="side">canvas要素をサポートしていません。</canvas>
+					</Box>
+
+					<h3>LEVEL:{level +1}</h3>
+					
+					<h3 >SCORE:{score}</h3>
 				</Box>
 			</Box>
 			
@@ -130,5 +137,12 @@ export const Tetris:React.FC=()=>{
 
 			</Box>
 		</Box>
+		<style>{`
+		#side {
+			left: 30px;
+			top: 30px;
+		  }
+		`}
+		</style>
 	</>);
 }

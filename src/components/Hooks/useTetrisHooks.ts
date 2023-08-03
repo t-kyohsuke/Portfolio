@@ -91,8 +91,10 @@ export const useTetrisHooks =()=>{
 			}
 		}else{
 			if(audioRef.current){
-				audioRef.current.play();
 				setSpeakerOn(true);
+				if(gameFlag){
+					audioRef.current.play();
+				}
 			}
 		}
 	}
@@ -155,8 +157,8 @@ export const useTetrisHooks =()=>{
 	const screenW:number = BlockSize * FieldCol;
 	const screenH:number = BlockSize * FieldRow;
 	//ネクストスクリーンサイズ
-	const nextScreenW:number = BlockSize * 5;
-	const nextScreenH:number = BlockSize * 5;
+	const nextScreenW:number = BlockSize * 4;
+	const nextScreenH:number = BlockSize * 4;
 
 	//フィールド本体(二次元配列)
 	const [field,setField] = useState<number[][]>(Array(FieldRow).fill(0).map(row=> new Array(FieldCol).fill(0)));
@@ -454,7 +456,7 @@ console.log("キーボード操作-gameFlag:"+gameFlag);
 //--ネクストスクリーン描画--------------
 	const nextScreenDraw =(nextCan:any)=>{
 		//外枠（ネクストスクリーン）の設定
-		nextCan.style.border = "2px solid #555";
+//		nextCan.style.border = "1px solid #555";
 		nextCan.style.backgroundColor = "#fff";
 		nextCan.style.borderRadius = "5px";
 		nextCan.width = nextScreenW;
