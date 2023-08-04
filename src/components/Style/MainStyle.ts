@@ -5,9 +5,7 @@ export const MainStyle ={
 	flexDirection:"row",
 	justifyContent:"left",
 	alignItems:"center",
-//	width:"600px",
-//	height:"800px",
-height:"calc(100vh - 20px)",
+	height:"calc(100vh - 20px)",
 	border:"1px solid",
 	borderRadius:"16px",
 }

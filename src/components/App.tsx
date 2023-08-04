@@ -7,7 +7,6 @@ import { About } from "./About";
 import { useTetrisHooks} from "./Hooks/useTetrisHooks";
 
 export const App:React.FC =()=>{
-//	const {handleClickBeforeUnload} = useTetrisHooks();
 	return(
 		<BrowserRouter>
 		<Routes>

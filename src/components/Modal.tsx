@@ -58,7 +58,6 @@ export const ModalStart:React.FC<StartProps> =({open, /*onClose,*/ count})=>{
 				{/*モーダルウィンドウ */}
 				<Modal
 				open={open}
-//				onClose={onClose}
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"
 				slots={{ backdrop: Backdrop }}

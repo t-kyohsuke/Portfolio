@@ -28,17 +28,6 @@ export const useTetrisHooks =()=>{
 
 
 //--modalの設定---------------------------------
-	//モーダル（ゲームスタートオープン）
-/*	const handleGameStartModalOpen =()=>{
-		setGameStartModalFlag(true);
-		console.log("モーダル（ゲームスタートオープン）");
-	};
-	//モーダル（ゲームスタートクローズ）
-	const handleGameStartModalClose =()=>{
-		handleClickStart();			//ゲームスタート
-		setGameStartModalFlag(false);
-	};
-*/
 	//モーダル（ゲームオーバーオープン）
 	const handleGameOverModalOpen =()=>{
 		setGameOverModalFlag(true);
@@ -49,7 +38,6 @@ export const useTetrisHooks =()=>{
 		handleBeforeUnload();	//BGM停止関数(アンロード)
 		dataReset();			//リセット
 	};
-
 
 
 //--カウントダウン------------------------
@@ -330,11 +318,6 @@ const rotateTetro =()=>{
 			newTetro[y][x] = tetro[TetroSize-1-x][y];//右回転する
 			//newTetro の y が増えると tetro の y が 3 から減っていく。
 			//newTetro の x が増えると tetro の x が増えていく。
-			if(tetro[y][x]){//テトロミノ自体にブロックがあれば、移動できるかチェック
-
-//※-------------------------------↑注意
-
-			}
 		}
 	}
 	return newTetro;//回転済みのテトロミノを返す
@@ -409,8 +392,6 @@ const fixTetro=()=>{
 const handleKeyDown = (e:{keyCode:number})=>{
 	//ゲームフラグ
 	if(!gameFlag && gameOverFlag){
-console.log("キーボード操作-gameFlag:"+gameFlag);
-
 		return;
 	} 
 
@@ -426,12 +407,7 @@ console.log("キーボード操作-gameFlag:"+gameFlag);
         break;
         
       case 40://下
-		if(checkMove(0,1)){
-			setTetro_Y((y)=> y+1);
-		}else{
-//	fixTetro();
-		}
-		console.log("下");
+		if(checkMove(0,1)) setTetro_Y((y)=> y+1);
         break;
         
       case 38://上	テトロミノ回転
@@ -457,8 +433,8 @@ console.log("キーボード操作-gameFlag:"+gameFlag);
 	const nextScreenDraw =(nextCan:any)=>{
 		//外枠（ネクストスクリーン）の設定
 //		nextCan.style.border = "1px solid #555";
-		nextCan.style.backgroundColor = "#fff";
-		nextCan.style.borderRadius = "5px";
+//		nextCan.style.backgroundColor = "#fff";
+//		nextCan.style.borderRadius = "5px";
 		nextCan.width = nextScreenW;
 		nextCan.height = nextScreenH;
 	}
@@ -645,10 +621,12 @@ newYRef.current = StartY;//tetro_Yの更新がうまく同期しないのでuseR
 		gameFlag,setGameFlag,		//ゲームフラグ
 		gameOverFlag,				//ゲームオーバーフラグ
 		handleGameOverModalOpen,handleGameOverModalClose,	//ゲームオーバーモーダル(オープン、クローズ)
-	
-		tetro_X,setTetro_X,tetro_Y,setTetro_Y,
-		tetro,
-	
+
+	//テトロミノ------------------------
+		tetro_X,setTetro_X,tetro_Y,setTetro_Y,	//テトロミノ座標
+		tetro,									//テトロミノ本体
+
+	//サウンド類------------------------
 		speakerOn,setSpeakerOn,audioRef,				//speaker状態管理
 		handleSpeakerClick,		//スピーカーアイコン切り替え関数
 		handlePauseAudio,handlePlayAudio,handleBeforeUnload,//BGM停止、BGM再生、BGM停止(アンロード)
@@ -659,7 +637,7 @@ newYRef.current = StartY;//tetro_Yの更新がうまく同期しないのでuseR
 		tetroDraw,nextTetroDraw,	//テトロ・ネクストテトロ描画
 		fieldDraw,					//フィールド描画
 
-		handleClickStart,			//ゲームフラグ（スタートへ）
+		handleClickStart,			//ゲームスタート（フラグ変更処理）
 		handleKeyDown,	//キーボードの押されたキーをチェック
 		fixTetro,		//テトロミノをフィールドに固定
 		newTetro,		//新しいテトロミノをセット
@@ -670,8 +648,8 @@ newYRef.current = StartY;//tetro_Yの更新がうまく同期しないのでuseR
 
 		count,				//カウント
 		startCountdown,	//カウントダウンスタート
-	gameStartModalFlag,setGameStartModalFlag,	//modal状態管理(ゲームオーバーモーダル)
-	gameOverModalFlag,setGameOverModalFlag,	//modal状態管理(ゲームオーバーモーダル)
+		gameStartModalFlag,setGameStartModalFlag,	//modal状態管理(ゲームオーバーモーダル)
+		gameOverModalFlag,setGameOverModalFlag,	//modal状態管理(ゲームオーバーモーダル)
 
 	}
 }
