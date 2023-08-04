@@ -15,30 +15,33 @@ import { ModalGameOver, ModalStart } from "./Modal";
 export const Tetris:React.FC=()=>{
 	
 	//Hooksの分割代入
-	const {	handleGameOverModalOpen,handleGameOverModalClose,	//ゲームオーバーモーダル(オープン、クローズ)
+	const {		//フラグ------------------------
+		gameFlag,		//ゲームフラグ
+		handleGameOverModalOpen,handleGameOverModalClose,	//ゲームオーバーモーダル(オープン、クローズ)
 
-			tetro_X,setTetro_X,tetro_Y,setTetro_Y,
-			tetro,
+	//テトロミノ------------------------
+		tetro_X,tetro_Y,	//テトロミノ座標
+		tetro,									//テトロミノ本体
 
-			speakerOn,setSpeakerOn,audioRef,				//speaker状態管理
-			handleSpeakerClick,		//スピーカーアイコン切り替え
-			handlePauseAudio,handlePlayAudio,//handleBeforeUnload,//BGM停止、BGM再生、BGM停止(アンロード)
-			SeErase,Sefix,//SE01再生、SE02再生関数
-			screenDraw,nextScreenDraw,	//スクリーン・ネクストスクリーン描画
-			tetroDraw,nextTetroDraw,		//テトロ・ネクストテトロ描画
-			fieldDraw,					//フィールド描画
-			handleClickStart,			//ゲームフラグ（スタートへ）
-			gameFlag,						//ゲームフラグ
-			handleKeyDown,	//キーボードの押されたキーをチェック
-			fixTetro,		//テトロミノをフィールドに固定
-			newTetro,//新しいテトロミノセット
-			score,level,			//スコア、レベル
-			dataReset,		//リセット
+	//サウンド類------------------------
+		speakerOn,				//speaker状態管理
+		handleSpeakerClick,		//スピーカーアイコン切り替え関数
+		handlePauseAudio,//BGM停止、BGM再生、BGM停止(アンロード)
+	
+	//描画------------------------
+		screenDraw,nextScreenDraw,	//スクリーン・ネクストスクリーン描画
+		tetroDraw,nextTetroDraw,	//テトロ・ネクストテトロ描画
+		fieldDraw,					//フィールド描画
 
-			count,				//カウント
-			startCountdown,	//カウントダウンスタート
-	gameStartModalFlag,setGameStartModalFlag,	//modal状態管理(ゲームオーバーモーダル)
-	gameOverModalFlag,setGameOverModalFlag,	//modal状態管理(ゲームオーバーモーダル)
+		handleKeyDown,	//キーボードの押されたキーをチェック
+
+		score,level,	//スコア、レベル
+		dataReset,		//リセット
+
+		count,				//カウント
+		startCountdown,	//カウントダウンスタート
+		gameStartModalFlag,	//modal状態管理(ゲームオーバーモーダル)
+		gameOverModalFlag,	//modal状態管理(ゲームオーバーモーダル)
 
 	} = useTetrisHooks();
 	

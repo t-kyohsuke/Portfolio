@@ -1,4 +1,3 @@
-
 //Puzzle大枠
 export const PuzzleStyleContainer ={
   display:"flex",
