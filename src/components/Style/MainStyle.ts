@@ -1,3 +1,4 @@
+//Mainページ大枠
 export const MainStyle ={
 	component:"div",
 	display:"flex",
@@ -5,24 +6,27 @@ export const MainStyle ={
 	justifyContent:"left",
 	alignItems:"center",
 //	width:"600px",
-	height:"800px",
+//	height:"800px",
+height:"calc(100vh - 20px)",
 	border:"1px solid",
 	borderRadius:"16px",
 }
-//左側
+
+//Mainページ左側
 export const MainStyleLeft ={
 	border:"solid 1px",
 	width:"120px",
-	height:"700px",
+	height:"calc(100% - 120px)",
+	minHeight:"700px",
 	padding:"20px"
 }
 
-//右側
+//Mainページ右側
 export const MainStyleRight ={
 	border:"solid 1px",
-	width:"800px",
-	height:"700px",
+	width:"100%",
+	height:"calc(100% - 120px)",
+	minHeight:"700px",
 	padding:"20px"
-
 }
 
