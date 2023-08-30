@@ -15,6 +15,11 @@ export const About:React.FC =()=>{
 		上でテトロミノが回転します。<br />
 		プレイ中は音楽が流れます。<br />
 		スピーカーアイコンをクリックすると音楽を止めることができます。<br />
+		<br /><br />
+
+		■GitHub<br />
+		ソースコード<br />
+		https://github.com/t-kyohsuke/Portfolio<br />
 		<br />
 		作成：多田享補
 	</>);
