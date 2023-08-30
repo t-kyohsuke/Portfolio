@@ -18,9 +18,8 @@ export const About:React.FC =()=>{
 		<br /><br />
 
 		■GitHub<br />
-		ソースコード<br />
-		https://github.com/t-kyohsuke/Portfolio<br />
-		<br />
+		<a href="https://github.com/t-kyohsuke/Portfolio" target="_blank" rel="noopener noreferrer">ソースコード</a>
+		<br /><br />
 		作成：多田享補
 	</>);
 }
