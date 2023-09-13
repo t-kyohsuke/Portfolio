@@ -2,7 +2,7 @@ import React,{ useEffect } from "react";
 import { Box ,Button, Typography } from "@mui/material";
 
 import { ModalGameOver } from "./Modal";
-import { PuzzleStylePiece, PuzzleStyleContainer, PuzzleStyleBorder} from "./Style/PuzzleStyle";
+import { PuzzleStylePiece, PuzzleStyleContainer, PuzzleStyleBorder,PuzzleStyleContents} from "./Style/PuzzleStyle";
 import { usePuzzleHooks } from "./Hooks/usePuzzleHooks";
 
 
@@ -39,9 +39,10 @@ export const Puzzle:React.FC=()=>{
 
 	return(<>
 		<Box sx={PuzzleStyleContainer}>
-			<Box className="timer" textAlign="center">
+			<Box className="timer" sx={PuzzleStyleContents}>
 				<h1>Puzzle</h1>
 				<Typography variant="h4"> TIME:{formatTime(time)}</Typography>
+
 			</Box>
 
 			<Box sx={PuzzleStyleBorder}>
@@ -55,7 +56,7 @@ export const Puzzle:React.FC=()=>{
 				<Box onClick={()=>handleClickPiece(7,pieces)} sx={PuzzleStylePiece} data-number="7">{pieces[7]}</Box>
 				<Box onClick={()=>handleClickPiece(8,pieces)} sx={PuzzleStylePiece} data-number="8">{pieces[8]}</Box>
 			</Box>
-			<Box className="btn">
+			<Box className="btn" sx={PuzzleStyleContents}>
 				<Button id="btnStart" onClick={handleStartStop} variant="contained" sx={{width:"120px",margin:"5px"}}>{isRunning ? "STOP" : "START"}</Button>
 			</Box>
 			<ModalGameOver open={gameOverModal} onClose={handleClose} data={formatTime(score)}/>
